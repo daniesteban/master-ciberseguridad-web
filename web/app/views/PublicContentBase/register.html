@@ -37,6 +37,37 @@
                 return false;
             }
 
+            var weak_pass_msg = "Password must be at least 8 characters in length and contains at least:\
+                                    \n - 1 lower case letter\
+                                    \n - 1 upper case letter\
+                                    \n - 1 numeric character\
+                                    \n - 1 special character"
+
+            if (!password.match(/[A-Z]/)) {
+                alert(weak_pass_msg);
+                return false;
+            }
+
+            if (!password.match(/[a-z]/)) {
+                alert(weak_pass_msg);
+                return false;
+            }
+
+            if (!password.match(/[0-9]/)) {
+                alert(weak_pass_msg);
+                return false;
+            }
+
+            if (!password.match(/[!#$%%&/\()=?¿¡*,;.:<>{}]/)) {
+                alert(weak_pass_msg);
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert(weak_pass_msg);
+                return false;
+            }
+
             return true;
         }
     });
